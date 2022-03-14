@@ -1,0 +1,33 @@
+
+<div style="padding: 16px">
+  <form [formGroup]="todo" (ngSubmit)="loginHome()">
+    <div style="padding: 16px; margin-top: 46px">
+      <div style="display: flex; justify-content: center; align-items: center; flex-direction: column">
+        <img src="assets/loginCoches.jpeg" alt="logo" width="500">
+        <p style="color: #9d9fa6; font-size: 14px; font-weight: bold">Auto Spare part</p>
+      </div>
+      <p style="text-align: center; font-weight: bold; font-size: 22px; padding-top: 5px;">Sign In</p>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label position="floating" >Email</mat-label>
+        <input matInput type="email" formControlName="email">
+      </mat-form-field>
+      <div  class="error-label" *ngIf="todo.controls.email.dirty && !todo.controls.email.valid">Email invalid.</div>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label position="floating" >Password</mat-label>
+        <input matInput type="password" formControlName="password">
+      </mat-form-field>
+      <div  class="error-label" *ngIf="todo.controls.password.dirty && !todo.controls.password.valid">Password invalid.</div>
+
+      <button mat-raised-button color="primary" style="margin-top: 40px; width: 100%"  type="submit" [disabled]="!todo.valid">Sign In</button>
+
+
+      <div style="display: flex; flex-direction: row; align-items: center; justify-content: center; margin-top: 15px">
+        <div style="width: 50%; text-align: center; color: #9d9fa6; font-size: 16px; font-weight: bold; " (click)="codes()">Forgot Password?</div>
+        <div style="width: 50%; text-align: center; color: #9d9fa6; font-size: 16px; font-weight: bold;" (click)="register()">Sign Up</div>
+      </div>
+    </div>
+  </form>
+</div>
+
+

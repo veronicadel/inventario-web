@@ -1,0 +1,27 @@
+<div style="padding: 16px">
+  <form *ngIf="todo" [formGroup]="todo">
+    <div style="padding: 16px;">
+      <p style="text-align: center; font-weight: bold; font-size: 22px; padding-top: 5px;">{{data.data.isType ? 'Add': 'Edit'}}</p>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label position="floating" >Name</mat-label>
+        <input matInput type="text"  formControlName="name"/>
+      </mat-form-field>
+      <div  class="error-label" *ngIf="todo.controls.name.dirty && !todo.controls.name.valid">Name invalid.</div>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label position="floating" >Description</mat-label>
+        <input matInput type="text"  formControlName="description"/>
+      </mat-form-field>
+      <div  class="error-label" *ngIf="todo.controls.description.dirty && !todo.controls.description.valid">Description invalid.</div>
+      <div style="display: flex; flex-direction: row;">
+        <div style="width: 50%; padding: 2px;">
+          <button mat-raised-button color="primary" style="margin-top: 40px; width: 100%" (click)="onNoClick()" >Close</button>
+        </div>
+        <div style="width: 50%; padding: 2px;">
+          <button mat-raised-button color="primary" style="margin-top: 40px; width: 100%"  [disabled]="!todo.valid" (click)="category()" >{{data.data.isType ? 'Add': 'Edit'}}</button>
+        </div>
+      </div>
+
+    </div>
+  </form>
+</div>

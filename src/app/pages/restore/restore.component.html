@@ -1,0 +1,22 @@
+<div style="padding: 16px;">
+  <form [formGroup]="todo" (ngSubmit)="restorePassword()">
+    <div style="padding: 16px;">
+      <p style="text-align: center; font-weight: bold; font-size: 22px; padding-top: 5px;">Restore Password</p>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label position="floating" >Password</mat-label>
+        <input matInput type="password" formControlName="password"/>
+      </mat-form-field>
+      <div  class="error-label" *ngIf="todo.controls.password.dirty && !todo.controls.password.valid">Password invalid.</div>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label position="floating" >Confirm password</mat-label>
+        <input matInput type="password" formControlName="confirmPassword"/>
+      </mat-form-field>
+      <div  class="error-label" *ngIf="todo.controls.confirmPassword.dirty && !todo.controls.confirmPassword.valid">Confirm Password invalid.</div>
+
+      <button  mat-raised-button color="primary" style="margin-top: 40px; width: 100%"   type="submit" [disabled]="!todo.valid" >Restore</button>
+
+    </div>
+  </form>
+</div>

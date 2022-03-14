@@ -1,0 +1,21 @@
+<div style="padding: 16px;">
+  <form [formGroup]="todo" (ngSubmit)="code()">
+    <div style="padding: 16px;">
+      <p style="text-align: center; font-weight: bold; font-size: 22px; padding-top: 5px;">Recuperar contraseña</p>
+      <mat-form-field *ngIf="!isValid" class="example-full-width" appearance="fill">
+        <mat-label position="floating" >Email</mat-label>
+        <input type="email" matInput formControlName="email">
+      </mat-form-field>
+      <div  class="error-label" *ngIf="todo.controls.email.dirty && !todo.controls.email.valid">Email invalid.</div>
+
+      <mat-form-field *ngIf="isValid" class="example-full-width" appearance="fill">
+        <mat-label position="floating" >Code</mat-label>
+        <input type="tel"  matInput formControlName="code" maxlength="4">
+      </mat-form-field>
+      <div  class="error-label" *ngIf="todo.controls.code.dirty && !todo.controls.code.valid">Code invalid.</div>
+
+      <button mat-raised-button color="primary" style="margin-top: 40px; width: 100%"  type="submit" [disabled]="!todo.valid" >{{!isValid ? 'Save': 'Verify'}}</button>
+    </div>
+  </form>
+</div>
+

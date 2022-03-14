@@ -1,0 +1,29 @@
+
+
+<mat-toolbar color="primary" *ngIf="isLogin">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>directions_car</mat-icon>
+  </button>
+  <span>Auto part</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <div style="font-size: 12px">get out</div>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="close()">
+    <mat-icon>forward</mat-icon>
+  </button>
+</mat-toolbar>
+
+<router-outlet></router-outlet>
+<div class="my-container">
+  <ng-template #customLoadingTemplate>
+    <div class="custom-class">
+<!--      <h3>
+        Loading...
+      </h3>-->
+    </div>
+  </ng-template>
+
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="customLoadingTemplate"></ngx-loading>
+</div>
